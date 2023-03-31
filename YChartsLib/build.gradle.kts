@@ -2,16 +2,15 @@ plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
     id("maven-publish")
-    id("signing")
     id("org.jetbrains.dokka")
 }
 
 android {
-    compileSdk = 32
+    compileSdk = 33
 
     defaultConfig {
         minSdk = 26
-        targetSdk = 32
+        targetSdk = 33
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -83,8 +82,10 @@ publishing {
             name = "YCharts"
             setUrl("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2")
             credentials {
-                username = project.findProperty("mavenCentralUsername")?.toString() ?: System.getenv("MAVEN_USERNAME")
-                password = project.findProperty("mavenCentralPassword")?.toString() ?: System.getenv("MAVEN_PASSWORD")
+                username = project.findProperty("mavenCentralUsername")?.toString()
+                    ?: System.getenv("MAVEN_USERNAME")
+                password = project.findProperty("mavenCentralPassword")?.toString()
+                    ?: System.getenv("MAVEN_PASSWORD")
             }
         }
     }
@@ -133,14 +134,4 @@ publishing {
             }
         }
     }
-}
-
-
-signing {
-    useInMemoryPgpKeys(
-        project.findProperty("signing.keyId")?.toString() ?: System.getenv("SIGNINGKEY"),
-        project.findProperty("signing.InMemoryKey")?.toString() ?: System.getenv("MEMORY_KEY"),
-        project.findProperty("signing.password")?.toString()?:System.getenv("SIGNINGPASSWORD")
-    )
-    sign(publishing.publications)
 }

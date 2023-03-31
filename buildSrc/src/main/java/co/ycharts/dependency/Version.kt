@@ -9,9 +9,9 @@ object Version {
     const val TEST_EXTN = "1.1.3"
     const val ESPRESSO_CORE = "3.4.0"
     const val COMPOSE_COMPILER = "1.2.0"
-    const val COMPOSE_UI = "1.2.0-rc03"
+    const val COMPOSE_UI = "1.4.0"
     const val COMPOSE_ACTIVITY = "1.3.1"
     const val RUNTIME_KTX = "2.3.1'"
-    const val KOTLIN_COMPILER_EXT = "1.1.0"
+    const val KOTLIN_COMPILER_EXT = "1.4.4"
     const val MOCKK = "1.12.5"
 }
